@@ -1,98 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rhoades Custom Shop</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f7f3ef;
-    color: #222;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  header h1 {
-    font-size: 2.8rem;
-    letter-spacing: 4px;
-    font-weight: 700;
-    color: #5a3e1b;
-  }
-  form {
-    background: white;
-    padding: 20px 25px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px #c9b998aa;
-  }
-  label {
-    display: block;
-    margin-top: 20px;
-    font-weight: 600;
-    color: #6b4b25;
-  }
-  select, input, textarea {
-    width: 100%;
-    padding: 8px 10px;
-    margin-top: 8px;
-    border-radius: 4px;
-    border: 1px solid #d4c8b2;
-    font-size: 1rem;
-    box-sizing: border-box;
-    resize: vertical;
-  }
-  #price {
-    margin-top: 30px;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #a14220;
-    text-align: center;
-  }
-  button {
-    margin-top: 35px;
-    width: 100%;
-    padding: 12px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    background: #a14220;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  button:hover {
-    background: #7a2d10;
-  }
-  .venmo-info {
-    background: white;
-    margin-top: 40px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px #c9b998aa;
-    text-align: center;
-  }
-  .venmo-info h2 {
-    color: #3D95CE;
-  }
-  .venmo-info a {
-    color: #3D95CE;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  .venmo-info a:hover {
-    text-decoration: underline;
-  }
-  footer {
-    text-align: center;
-    margin-top: 60px;
-    color: #8b7a63;
-    font-size: 0.9rem;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rhoades Custom Shop</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f3ef;
+      color: #222;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      letter-spacing: 4px;
+      font-weight: 700;
+      color: #5a3e1b;
+    }
+    form {
+      background: white;
+      padding: 20px 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #c9b998aa;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #6b4b25;
+    }
+    select, input, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      margin-top: 8px;
+      border-radius: 4px;
+      border: 1px solid #d4c8b2;
+      font-size: 1rem;
+    }
+    #price {
+      margin-top: 30px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #a14220;
+      text-align: center;
+    }
+    button {
+      margin-top: 35px;
+      width: 100%;
+      padding: 12px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: #a14220;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #7a2d10;
+    }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #8b7a63;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
 <header>
@@ -100,46 +79,106 @@
   <p>Build your dream Tele or Strat guitar. Base price $450.</p>
 </header>
 
-<form id="customizer">
-  <!-- Your builder form remains the same -->
-  <!-- ... ALL your existing guitar option fields ... -->
+<form id="customizer" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
+  <!-- Buyer Info -->
+  <label for="fullName">Full Name</label>
+  <input type="text" name="Full Name" id="fullName" required />
+
+  <label for="email">Email</label>
+  <input type="email" name="Email" id="email" required />
+
+  <label for="address">Shipping Address</label>
+  <textarea name="Shipping Address" id="address" rows="3" required></textarea>
+
+  <!-- Guitar Options (your original form preserved) -->
+  <label for="bodyStyle">Body Style</label>
+  <select id="bodyStyle" name="Body Style" required>
+    <option value="Telecaster">Telecaster</option>
+    <option value="Stratocaster">Stratocaster</option>
+  </select>
+
+  <label for="bodyWood">Body Wood</label>
+  <select id="bodyWood" name="Body Wood" required>
+    <option value="Alder">Alder (+$0)</option>
+    <option value="Swamp Ash">Swamp Ash (+$20)</option>
+    <option value="Mahogany">Mahogany (+$30)</option>
+  </select>
+
+  <label for="bodyFinish">Body Finish</label>
+  <select id="bodyFinish" name="Body Finish" required>
+    <option value="Black">Black (+$0)</option>
+    <option value="White">White (+$0)</option>
+    <option value="Surf Green">Surf Green (+$0)</option>
+    <option value="Burst">Burst / Stain (+$40)</option>
+    <option value="Custom">Custom Color (+$60)</option>
+  </select>
+
+  <label for="neckWood">Neck Wood</label>
+  <select id="neckWood" name="Neck Wood" required>
+    <option value="Maple">Maple (+$0)</option>
+    <option value="Roasted Maple">Roasted Maple (+$30)</option>
+  </select>
+
+  <label for="neckShape">Neck Shape</label>
+  <select id="neckShape" name="Neck Shape" required>
+    <option value="U Shape">U Shape</option>
+    <option value="V Shape">V Shape</option>
+    <option value="C Shape">C Shape</option>
+  </select>
+
+  <label for="fingerboard">Fingerboard</label>
+  <select id="fingerboard" name="Fingerboard" required>
+    <option value="Maple">Maple</option>
+    <option value="Rosewood">Rosewood</option>
+  </select>
+
+  <label for="pickguard">Pickguard</label>
+  <select id="pickguard" name="Pickguard" required>
+    <option value="Black">Black (+$0)</option>
+    <option value="White">White (+$0)</option>
+    <option value="Tortoise Shell">Tortoise Shell (+$20)</option>
+  </select>
+
+  <label for="bridge">Bridge</label>
+  <select id="bridge" name="Bridge" required>
+    <option value="Tele 3-Saddle">Tele 3-Saddle (+$0)</option>
+    <option value="Tele 6-Saddle">Tele 6-Saddle (+$10)</option>
+    <option value="Strat Tremolo">Strat Vintage Tremolo (+$10)</option>
+    <option value="Strat Hardtail">Strat Hardtail (+$0)</option>
+  </select>
+
+  <label for="tuners">Tuners</label>
+  <select id="tuners" name="Tuners" required>
+    <option value="Vintage Kluson">Vintage Kluson (+$0)</option>
+    <option value="Locking Tuners">Locking Tuners (+$20)</option>
+  </select>
+
+  <label for="pickups">Pickups</label>
+  <select id="pickups" name="Pickups" required>
+    <option value="Rhoades Custom Vintage">Rhoades Custom Vintage (+$0)</option>
+    <option value="Hot Tele Set">Hot Tele Set (+$20)</option>
+    <option value="60s Strat Set">60s Strat Set (+$20)</option>
+  </select>
 
   <label>Add-Ons:</label>
-  <input type="checkbox" id="neckPlate" name="neckPlate" value="neckPlate" data-price="10" />
-  <label for="neckPlate">Neck Plate Engraving (+$10)</label><br />
-  <input type="checkbox" id="backplateEtch" name="backplateEtch" value="backplateEtch" data-price="10" />
-  <label for="backplateEtch">Backplate Laser Etch (+$10)</label>
+  <input type="checkbox" id="neckPlate" name="Neck Plate Engraving" value="Yes" /> Neck Plate Engraving (+$10)<br />
+  <input type="checkbox" id="backplateEtch" name="Backplate Laser Etch" value="Yes" /> Backplate Laser Etch (+$10)
+
+  <!-- Payment Method -->
+  <label for="payment">Payment Method</label>
+  <select id="payment" name="Payment Method" required>
+    <option value="Venmo">Venmo</option>
+    <option value="Cash App">Cash App</option>
+    <option value="Zelle">Zelle</option>
+  </select>
 
   <div id="price">Total Price: $450</div>
   <button type="submit">Submit Build</button>
+
+  <!-- Prevent spam -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://tinyurl.com/RhoadesGuitars">
 </form>
-
-<!-- NEW SECTION: Venmo Order Form -->
-<div class="venmo-info">
-  <h2>Order & Pay via Venmo</h2>
-  <form action="https://formspree.io/f/your-form-id" method="POST">
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required />
-
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="_replyto" required />
-
-    <label for="order">What do you want?</label>
-    <textarea id="order" name="order" rows="4" required></textarea>
-
-    <label for="questions">Extra Questions or Notes:</label>
-    <textarea id="questions" name="questions" rows="4" placeholder="Write anything else here..."></textarea>
-
-    <button type="submit">Send Order Info</button>
-  </form>
-
-  <p style="margin-top:20px;"><strong>Venmo Username:</strong> @cashrhoades</p>
-  <p><a href="https://venmo.com/cashrhoades" target="_blank">Click here to pay on Venmo</a></p>
-</div>
-
-<footer>
-  &copy; 2025 Rhoades Custom Guitars. Built with passion in Missouri.
-</footer>
 
 <script>
   const basePrice = 450;
@@ -164,11 +203,11 @@
 
     const bodyStyle = form.bodyStyle.value;
     const pickups = form.pickups.value;
-    if (bodyStyle === 'tele' && pickups === '60sstrat') {
+    if (bodyStyle === 'Telecaster' && pickups === '60s Strat Set') {
       priceDisplay.textContent = "Please select Hot Tele pickups for Tele body.";
       return;
     }
-    if (bodyStyle === 'strat' && pickups === 'hottele') {
+    if (bodyStyle === 'Stratocaster' && pickups === 'Hot Tele Set') {
       priceDisplay.textContent = "Please select 60s Strat pickups for Strat body.";
       return;
     }
@@ -177,13 +216,6 @@
   }
 
   form.addEventListener('change', updatePrice);
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    alert('Thanks for submitting your build! We will contact you soon.');
-    form.reset();
-    priceDisplay.textContent = `Total Price: $${basePrice}`;
-  });
-
   updatePrice();
 </script>
 </body>
