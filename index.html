@@ -6,100 +6,45 @@
   <title>Rhoades Custom Shop</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f7f3ef;
-      color: #222;
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 0 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
     }
-    header {
+    h1 {
       text-align: center;
-      margin-bottom: 30px;
-    }
-    header h1 {
-      font-size: 2.8rem;
-      letter-spacing: 4px;
-      font-weight: 700;
-      color: #5a3e1b;
+      font-size: 2.5rem;
     }
     form {
-      background: white;
-      padding: 20px 25px;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 20px #c9b998aa;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     label {
       display: block;
-      margin-top: 20px;
-      font-weight: 600;
-      color: #6b4b25;
+      margin-top: 15px;
+      font-weight: bold;
     }
-    select, input, textarea {
+    select, input[type="text"], input[type="checkbox"] {
       width: 100%;
-      padding: 8px 10px;
-      margin-top: 8px;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
       border-radius: 4px;
-      border: 1px solid #d4c8b2;
-      font-size: 1rem;
-      box-sizing: border-box;
-      resize: vertical;
     }
     #price {
-      margin-top: 30px;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #a14220;
+      margin-top: 20px;
+      font-size: 1.5rem;
       text-align: center;
-    }
-    button {
-      margin-top: 35px;
-      width: 100%;
-      padding: 12px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      background: #a14220;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #7a2d10;
-    }
-    .venmo-info {
-      background: white;
-      margin-top: 40px;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 15px #c9b998aa;
-      text-align: center;
-    }
-    .venmo-info h2 {
-      color: #3D95CE;
-    }
-    .venmo-info a {
-      color: #3D95CE;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .venmo-info a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      color: #8b7a63;
-      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Rhoades Custom Shop</h1>
-  <p>Build your dream Tele or Strat guitar. Base price $450.</p>
-</header>
+<h1>Rhoades Custom Shop</h1>
 
 <form id="customizer">
   <label for="bodyStyle">Body Style:</label>
@@ -114,42 +59,14 @@
     <option value="60sstrat">60s Strat Pickups (+$0)</option>
   </select>
 
-  <label>Add-Ons:</label>
+  <label for="neckPlate">Neck Plate Laser Engraving:</label>
+  <input type="checkbox" id="neckPlate" name="neckPlate" value="neckPlate" data-price="10" />
+
+  <label for="backplateEtch">Backplate Laser Etch:</label>
   <input type="checkbox" id="backplateEtch" name="backplateEtch" value="backplateEtch" data-price="10" />
-  <label for="backplateEtch">Backplate Laser Etch (+$10)</label>
 
   <div id="price">Total Price: $450</div>
-  <button type="submit">Submit Build</button>
 </form>
-
-<div class="venmo-info">
-  <h2>Order & Pay via Venmo</h2>
-  <form action="https://formsubmit.co/your_real_gmail@gmail.com" method="POST">
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required />
-
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required />
-
-    <label for="order">What do you want?</label>
-    <textarea id="order" name="order" rows="4" required></textarea>
-
-    <label for="questions">Extra Questions or Notes:</label>
-    <textarea id="questions" name="questions" rows="4" placeholder="Write anything else here..."></textarea>
-
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://yourwebsite.github.io/thankyou">
-
-    <button type="submit">Send Order Info</button>
-  </form>
-
-  <p style="margin-top:20px;"><strong>Venmo Username:</strong> @cashrhoades</p>
-  <p><a href="https://venmo.com/cashrhoades" target="_blank">Click here to pay on Venmo</a></p>
-</div>
-
-<footer>
-  &copy; 2025 Rhoades Custom Guitars. Built with passion in Missouri.
-</footer>
 
 <script>
   const basePrice = 450;
@@ -159,16 +76,9 @@
   function updatePrice() {
     let total = basePrice;
 
-    form.querySelectorAll('select').forEach(select => {
-      const selectedOption = select.options[select.selectedIndex];
-      const addOn = selectedOption.getAttribute('data-price');
-      if (addOn) total += parseInt(addOn);
-    });
-
     form.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
       if (checkbox.checked) {
-        const addOn = checkbox.getAttribute('data-price');
-        if (addOn) total += parseInt(addOn);
+        total += parseInt(checkbox.getAttribute('data-price'));
       }
     });
 
@@ -187,14 +97,8 @@
   }
 
   form.addEventListener('change', updatePrice);
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    alert('Thanks for submitting your build! We will contact you soon.');
-    form.reset();
-    priceDisplay.textContent = `Total Price: $${basePrice}`;
-  });
-
   updatePrice();
 </script>
+
 </body>
 </html>
