@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rhoades Guitars</title>
   <style>
     body {
@@ -53,6 +53,7 @@
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
     }
     footer a {
       color: #3D95CE;
@@ -67,12 +68,14 @@
   <h1>Rhoades Guitars</h1>
   <h2>Custom Guitar Order Form</h2>
 
-  <form action="https://formspree.io/f/your-form-id" method="POST">
+  <form action="https://formspree.io/f/mnqewbyv" method="POST" id="orderForm">
+    <input type="hidden" name="_replyto" value="cashrhoades11@gmail.com" />
+
     <label for="name">Your Name</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="name" name="name" required />
 
     <label for="email">Your Email</label>
-    <input type="email" id="email" name="email" required>
+    <input type="email" id="email" name="email" required />
 
     <label for="guitar_type">Guitar Type</label>
     <select id="guitar_type" name="guitar_type" required>
@@ -83,7 +86,7 @@
     </select>
 
     <label for="colors">Color</label>
-    <input type="text" id="colors" name="colors" placeholder="e.g. Tobacco Burst, Black, Natural">
+    <input type="text" id="colors" name="colors" placeholder="e.g. Tobacco Burst, Black, Natural" />
 
     <label for="pickup">Pickup Configuration</label>
     <select id="pickup" name="pickup">
@@ -108,5 +111,12 @@
       After submitting your custom guitar order, we’ll email you to confirm and follow up with payment details via Venmo.
     </p>
   </footer>
+
+  <script>
+    const form = document.getElementById('orderForm');
+    form.addEventListener('submit', () => {
+      alert('Thanks for submitting your order! We will contact you shortly.');
+    });
+  </script>
 </body>
 </html>
