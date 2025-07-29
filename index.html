@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rhoades Custom Shop</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f3ef;
+    color: #222;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  header h1 {
+    font-size: 2.8rem;
+    letter-spacing: 4px;
+    font-weight: 700;
+    color: #5a3e1b;
+  }
+  form {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px #c9b998aa;
+  }
+  label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #6b4b25;
+  }
+  select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 8px;
+    border-radius: 4px;
+    border: 1px solid #d4c8b2;
+    font-size: 1rem;
+  }
+  #price {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #a14220;
+    text-align: center;
+  }
+  button {
+    margin-top: 35px;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: #a14220;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #7a2d10;
+  }
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    color: #8b7a63;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Rhoades Custom Shop</h1>
+  <p>Build your dream Tele or Strat guitar. Base price $450.</p>
+</header>
+
+<form id="customizer">
+  <label for="bodyStyle">Body Style</label>
+  <select id="bodyStyle" name="bodyStyle" required>
+    <option value="tele">Telecaster</option>
+    <option value="strat">Stratocaster</option>
+  </select>
+
+  <label for="bodyWood">Body Wood</label>
+  <select id="bodyWood" name="bodyWood" required>
+    <option value="alder" data-price="0">Alder (+$0)</option>
+    <option value="swampash" data-price="20">Swamp Ash (+$20)</option>
+    <option value="mahogany" data-price="30">Mahogany (+$30)</option>
+  </select>
+
+  <label for="bodyFinish">Body Finish</label>
+  <select id="bodyFinish" name="bodyFinish" required>
+    <option value="standard" data-price="0">Standard (Black, White, Surf Green) (+$0)</option>
+    <option value="burst" data-price="40">Burst / Stain (+$40)</option>
+    <option value="custom" data-price="60">Custom Color (+$60)</option>
+  </select>
+
+  <label for="neckWood">Neck Wood</label>
+  <select id="neckWood" name="neckWood" required>
+    <option value="maple" data-price="0">Maple (+$0)</option>
+    <option value="roastedmaple" data-price="30">Roasted Maple (+$30)</option>
+  </select>
+
+  <label for="neckShape">Neck Shape</label>
+  <select id="neckShape" name="neckShape" required>
+    <option value="u">U Shape</option>
+    <option value="v">V Shape</option>
+    <option value="c">C Shape</option>
+  </select>
+
+  <label for="fingerboard">Fingerboard Wood</label>
+  <select id="fingerboard" name="fingerboard" required>
+    <option value="maple">Maple</option>
+    <option value="rosewood">Rosewood</option>
+  </select>
+
+  <label for="pickguard">Pickguard</label>
+  <select id="pickguard" name="pickguard" required>
+    <option value="black" data-price="0">Black (+$0)</option>
+    <option value="white" data-price="0">White (+$0)</option>
+    <option value="tortoise" data-price="20">Tortoise Shell (+$20)</option>
+  </select>
+
+  <label for="bridge">Bridge</label>
+  <select id="bridge" name="bridge" required>
+    <option value="tele3" data-price="0">Tele 3-Saddle (+$0)</option>
+    <option value="tele6" data-price="10">Tele 6-Saddle (+$10)</option>
+    <option value="strattremolo" data-price="10">Strat Vintage Tremolo (+$10)</option>
+    <option value="strathardtail" data-price="0">Strat Hardtail (+$0)</option>
+  </select>
+
+  <label for="tuners">Tuners</label>
+  <select id="tuners" name="tuners" required>
+    <option value="kluson" data-price="0">Vintage Kluson (+$0)</option>
+    <option value="locking" data-price="20">Locking Tuners (+$20)</option>
+  </select>
+
+  <label for="pickups">Pickups</label>
+  <select id="pickups" name="pickups" required>
+    <option value="rhoades" data-price="0">Rhoades Custom Vintage Single-Coils (+$0)</option>
+    <option value="hottele" data-price="20">Hot Tele Set (Tele only) (+$20)</option>
+    <option value="60sstrat" data-price="20">60s Strat Set (Strat only) (+$20)</option>
+  </select>
+
+  <label>Add-Ons:</label>
+  <input type="checkbox" id="neckPlate" name="neckPlate" value="neckPlate" data-price="10" />
+  <label for="neckPlate">Neck Plate Engraving (+$10)</label><br />
+  <input type="checkbox" id="backplateEtch" name="backplateEtch" value="backplateEtch" data-price="10" />
+  <label for="backplateEtch">Backplate Laser Etch (+$10)</label>
+
+  <div id="price">Total Price: $450</div>
+  <button type="submit">Submit Build</button>
+</form>
+
+<script>
+  const basePrice = 450;
+
+  const form = document.getElementById('customizer');
+  const priceDisplay = document.getElementById('price');
+
+  function updatePrice() {
+    let total = basePrice;
+
+    // Add prices for each dropdown selection
+    form.querySelectorAll('select').forEach(select => {
+      const selectedOption = select.options[select.selectedIndex];
+      const addOn = selectedOption.getAttribute('data-price');
+      if (addOn) {
+        total += parseInt(addOn);
+      }
+    });
+
+    // Add prices for checkboxes
+    form.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+      if (checkbox.checked) {
+        const addOn = checkbox.getAttribute('data-price');
+        if (addOn) {
+          total += parseInt(addOn);
+        }
+      }
+    });
+
+    // Special logic: Hot Tele Set only for Tele, 60s Strat Set only for Strat
+    const bodyStyle = form.bodyStyle.value;
+    const pickups = form.pickups.value;
+    if (bodyStyle === 'tele' && pickups === '60sstrat') {
+      priceDisplay.textContent = "Please select Hot Tele pickups for Tele body.";
+      return;
+    }
+    if (bodyStyle === 'strat' && pickups === 'hottele') {
+      priceDisplay.textContent = "Please select 60s Strat pickups for Strat body.";
+      return;
+    }
+
+    priceDisplay.textContent = `Total Price: $${total}`;
+  }
+
+  form.addEventListener('change', updatePrice);
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thanks for submitting your build! We will contact you soon.');
+    form.reset();
+    priceDisplay.textContent = `Total Price: $${basePrice}`;
+  });
+
+  updatePrice();
+</script>
+</body>
+</html>
