@@ -1,88 +1,94 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rhoades Guitar Order Form</title>
+  <meta charset="UTF-8">
+  <title>Rhoades Guitar Custom Shop</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: sans-serif;
+      background-color: #f0f0f0;
       padding: 20px;
-    }
-    form {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
+      max-width: 700px;
       margin: auto;
     }
-    h2 {
+    h1 {
       text-align: center;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     label {
       display: block;
-      margin: 10px 0 5px;
+      margin-top: 10px;
     }
     input, select, textarea {
       width: 100%;
       padding: 8px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      margin-top: 5px;
     }
     button {
-      background-color: #000;
-      color: #fff;
-      border: none;
+      margin-top: 15px;
       padding: 10px 20px;
-      border-radius: 5px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 4px;
       cursor: pointer;
-      width: 100%;
     }
     button:hover {
-      background-color: #444;
+      background-color: #333;
     }
   </style>
 </head>
 <body>
+  <h1>Rhoades Guitar Order Form</h1>
   <form action="https://formsubmit.co/cashrhoades11@gmail.com" method="POST">
-    <h2>Rhoades Custom Guitar Order</h2>
-
     <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" required />
+    <input type="text" name="name" id="name" required>
 
     <label for="email">Email</label>
-    <input type="email" id="email" name="email" required />
+    <input type="email" name="email" id="email" required>
 
     <label for="address">Shipping Address</label>
-    <textarea id="address" name="address" rows="3" required></textarea>
+    <textarea name="address" id="address" rows="3" required></textarea>
 
-    <label for="model">Guitar Model</label>
-    <select id="model" name="model" required>
+    <label for="guitarType">Guitar Type</label>
+    <select name="guitarType" id="guitarType">
       <option value="Telecaster">Telecaster</option>
       <option value="Stratocaster">Stratocaster</option>
     </select>
 
-    <label for="body">Body Wood</label>
-    <select id="body" name="body" required>
+    <label for="bodyWood">Body Wood</label>
+    <select name="bodyWood" id="bodyWood">
       <option value="Mahogany">Mahogany</option>
+      <option value="Maple">Maple</option>
+      <option value="Alder">Alder</option>
+    </select>
+
+    <label for="bodyColor">Body Color</label>
+    <select name="bodyColor" id="bodyColor">
+      <option value="Black">Black</option>
+      <option value="White">White</option>
+      <option value="Tortoise Shell">Tortoise Shell (Red)</option>
+      <option value="2-Tone Sunburst">2-Tone Orange & Black Sunburst (+$30)</option>
+      <option value="Tobacco Brown Sunburst">Tobacco Brown Sunburst (+$30)</option>
     </select>
 
     <label for="pickguard">Pickguard</label>
-    <select id="pickguard" name="pickguard" required>
+    <select name="pickguard" id="pickguard">
       <option value="Black">Black</option>
       <option value="White">White</option>
       <option value="Tortoise Shell">Tortoise Shell</option>
     </select>
 
-    <label for="comments">Special Notes or Comments</label>
-    <textarea id="comments" name="comments" rows="4"></textarea>
+    <label for="notes">Any Special Notes</label>
+    <textarea name="notes" id="notes" rows="4"></textarea>
 
-    <!-- Prevent bot spam -->
+    <input type="hidden" name="_next" value="https://rhoadesguitar.github.io/thank-you.html">
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
 
     <button type="submit">Submit Order</button>
   </form>
