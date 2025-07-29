@@ -3,120 +3,220 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rhoades Guitars</title>
+  <title>Rhoades Custom Shop</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      background: #f5f5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f3ef;
+      color: #222;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
-    h1, h2, h3 {
+    header {
       text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      letter-spacing: 4px;
+      font-weight: 700;
+      color: #5a3e1b;
     }
     form {
       background: white;
-      padding: 20px;
+      padding: 20px 25px;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 20px #c9b998aa;
     }
     label {
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #6b4b25;
     }
-    input, select, textarea {
+    select, input, textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
+      padding: 8px 10px;
+      margin-top: 8px;
       border-radius: 4px;
+      border: 1px solid #d4c8b2;
+      font-size: 1rem;
+    }
+    #price {
+      margin-top: 30px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #a14220;
+      text-align: center;
     }
     button {
-      margin-top: 20px;
+      margin-top: 35px;
       width: 100%;
       padding: 12px;
-      background-color: #3D95CE;
-      border: none;
-      border-radius: 4px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: #a14220;
       color: white;
-      font-size: 1.1rem;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
     }
     button:hover {
-      background-color: #357ABD;
+      background: #7a2d10;
     }
     footer {
-      margin-top: 40px;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
-    }
-    footer a {
-      color: #3D95CE;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
+      margin-top: 60px;
+      color: #8b7a63;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h1>Rhoades Guitars</h1>
-  <h2>Custom Guitar Order Form</h2>
+<header>
+  <h1>Rhoades Custom Shop</h1>
+  <p>Build your dream Tele or Strat guitar. Base price $450.</p>
+</header>
 
-  <form action="https://formspree.io/f/mnqewbyv" method="POST" id="orderForm">
-    <input type="hidden" name="_replyto" value="cashrhoades11@gmail.com" />
+<form id="customizer" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
+  <!-- Buyer Info -->
+  <label for="fullName">Full Name</label>
+  <input type="text" name="Full Name" id="fullName" required />
 
-    <label for="name">Your Name</label>
-    <input type="text" id="name" name="name" required />
+  <label for="email">Email</label>
+  <input type="email" name="Email" id="email" required />
 
-    <label for="email">Your Email</label>
-    <input type="email" id="email" name="email" required />
+  <label for="address">Shipping Address</label>
+  <textarea name="Shipping Address" id="address" rows="3" required></textarea>
 
-    <label for="guitar_type">Guitar Type</label>
-    <select id="guitar_type" name="guitar_type" required>
-      <option value="Tele-style">Tele-style</option>
-      <option value="Strat-style">Strat-style</option>
-      <option value="Offset">Offset</option>
-      <option value="Custom">Custom</option>
-    </select>
+  <!-- Guitar Options (your original form preserved) -->
+  <label for="bodyStyle">Body Style</label>
+  <select id="bodyStyle" name="Body Style" required>
+    <option value="Telecaster">Telecaster</option>
+    <option value="Stratocaster">Stratocaster</option>
+  </select>
 
-    <label for="colors">Color</label>
-    <input type="text" id="colors" name="colors" placeholder="e.g. Tobacco Burst, Black, Natural" />
+  <label for="bodyWood">Body Wood</label>
+  <select id="bodyWood" name="Body Wood" required>
+    <option value="Alder">Alder (+$0)</option>
+    <option value="Swamp Ash">Swamp Ash (+$20)</option>
+    <option value="Mahogany">Mahogany (+$30)</option>
+  </select>
 
-    <label for="pickup">Pickup Configuration</label>
-    <select id="pickup" name="pickup">
-      <option value="SS">SS</option>
-      <option value="SSS">SSS</option>
-      <option value="HH">HH</option>
-      <option value="HSS">HSS</option>
-      <option value="Custom">Custom</option>
-    </select>
+  <label for="bodyFinish">Body Finish</label>
+  <select id="bodyFinish" name="Body Finish" required>
+    <option value="Black">Black (+$0)</option>
+    <option value="White">White (+$0)</option>
+    <option value="Surf Green">Surf Green (+$0)</option>
+    <option value="Burst">Burst / Stain (+$40)</option>
+    <option value="Custom">Custom Color (+$60)</option>
+  </select>
 
-    <label for="questions">Extra Questions or Notes</label>
-    <textarea id="questions" name="questions" rows="4" placeholder="Write anything else here..."></textarea>
+  <label for="neckWood">Neck Wood</label>
+  <select id="neckWood" name="Neck Wood" required>
+    <option value="Maple">Maple (+$0)</option>
+    <option value="Roasted Maple">Roasted Maple (+$30)</option>
+  </select>
 
-    <button type="submit">Submit Order Info</button>
-  </form>
+  <label for="neckShape">Neck Shape</label>
+  <select id="neckShape" name="Neck Shape" required>
+    <option value="U Shape">U Shape</option>
+    <option value="V Shape">V Shape</option>
+    <option value="C Shape">C Shape</option>
+  </select>
 
-  <footer>
-    <h3>Payment & Contact</h3>
-    <p><strong>Venmo:</strong> @cashrhoades</p>
-    <p><strong>Email:</strong> <a href="mailto:cashrhoades11@gmail.com">cashrhoades11@gmail.com</a></p>
-    <p style="margin-top: 10px; font-size: 0.85rem; color: #777;">
-      After submitting your custom guitar order, we’ll email you to confirm and follow up with payment details via Venmo.
-    </p>
-  </footer>
+  <label for="fingerboard">Fingerboard</label>
+  <select id="fingerboard" name="Fingerboard" required>
+    <option value="Maple">Maple</option>
+    <option value="Rosewood">Rosewood</option>
+  </select>
 
-  <script>
-    const form = document.getElementById('orderForm');
-    form.addEventListener('submit', () => {
-      alert('Thanks for submitting your order! We will contact you shortly.');
+  <label for="pickguard">Pickguard</label>
+  <select id="pickguard" name="Pickguard" required>
+    <option value="Black">Black (+$0)</option>
+    <option value="White">White (+$0)</option>
+    <option value="Tortoise Shell">Tortoise Shell (+$20)</option>
+  </select>
+
+  <label for="bridge">Bridge</label>
+  <select id="bridge" name="Bridge" required>
+    <option value="Tele 3-Saddle">Tele 3-Saddle (+$0)</option>
+    <option value="Tele 6-Saddle">Tele 6-Saddle (+$10)</option>
+    <option value="Strat Tremolo">Strat Vintage Tremolo (+$10)</option>
+    <option value="Strat Hardtail">Strat Hardtail (+$0)</option>
+  </select>
+
+  <label for="tuners">Tuners</label>
+  <select id="tuners" name="Tuners" required>
+    <option value="Vintage Kluson">Vintage Kluson (+$0)</option>
+    <option value="Locking Tuners">Locking Tuners (+$20)</option>
+  </select>
+
+  <label for="pickups">Pickups</label>
+  <select id="pickups" name="Pickups" required>
+    <option value="Rhoades Custom Vintage">Rhoades Custom Vintage (+$0)</option>
+    <option value="Hot Tele Set">Hot Tele Set (+$20)</option>
+    <option value="60s Strat Set">60s Strat Set (+$20)</option>
+  </select>
+
+  <label>Add-Ons:</label>
+  <input type="checkbox" id="neckPlate" name="Neck Plate Engraving" value="Yes" /> Neck Plate Engraving (+$10)<br />
+  <input type="checkbox" id="backplateEtch" name="Backplate Laser Etch" value="Yes" /> Backplate Laser Etch (+$10)
+
+  <!-- Payment Method -->
+  <label for="payment">Payment Method</label>
+  <select id="payment" name="Payment Method" required>
+    <option value="Venmo">Venmo</option>
+    <option value="Cash App">Cash App</option>
+    <option value="Zelle">Zelle</option>
+  </select>
+
+  <div id="price">Total Price: $450</div>
+  <button type="submit">Submit Build</button>
+
+  <!-- Prevent spam -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://tinyurl.com/RhoadesGuitars">
+</form>
+
+<script>
+  const basePrice = 450;
+  const form = document.getElementById('customizer');
+  const priceDisplay = document.getElementById('price');
+
+  function updatePrice() {
+    let total = basePrice;
+
+    form.querySelectorAll('select').forEach(select => {
+      const selectedOption = select.options[select.selectedIndex];
+      const addOn = selectedOption.getAttribute('data-price');
+      if (addOn) total += parseInt(addOn);
     });
-  </script>
+
+    form.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+      if (checkbox.checked) {
+        const addOn = checkbox.getAttribute('data-price');
+        if (addOn) total += parseInt(addOn);
+      }
+    });
+
+    const bodyStyle = form.bodyStyle.value;
+    const pickups = form.pickups.value;
+    if (bodyStyle === 'Telecaster' && pickups === '60s Strat Set') {
+      priceDisplay.textContent = "Please select Hot Tele pickups for Tele body.";
+      return;
+    }
+    if (bodyStyle === 'Stratocaster' && pickups === 'Hot Tele Set') {
+      priceDisplay.textContent = "Please select 60s Strat pickups for Strat body.";
+      return;
+    }
+
+    priceDisplay.textContent = Total Price: $${total};
+  }
+
+  form.addEventListener('change', updatePrice);
+  updatePrice();
+</script>
 </body>
 </html>
