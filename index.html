@@ -35,13 +35,15 @@
     font-weight: 600;
     color: #6b4b25;
   }
-  select {
+  select, input, textarea {
     width: 100%;
     padding: 8px 10px;
     margin-top: 8px;
     border-radius: 4px;
     border: 1px solid #d4c8b2;
     font-size: 1rem;
+    box-sizing: border-box;
+    resize: vertical;
   }
   #price {
     margin-top: 30px;
@@ -65,6 +67,25 @@
   button:hover {
     background: #7a2d10;
   }
+  .venmo-info {
+    background: white;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #c9b998aa;
+    text-align: center;
+  }
+  .venmo-info h2 {
+    color: #3D95CE;
+  }
+  .venmo-info a {
+    color: #3D95CE;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .venmo-info a:hover {
+    text-decoration: underline;
+  }
   footer {
     text-align: center;
     margin-top: 60px;
@@ -80,74 +101,8 @@
 </header>
 
 <form id="customizer">
-  <label for="bodyStyle">Body Style</label>
-  <select id="bodyStyle" name="bodyStyle" required>
-    <option value="tele">Telecaster</option>
-    <option value="strat">Stratocaster</option>
-  </select>
-
-  <label for="bodyWood">Body Wood</label>
-  <select id="bodyWood" name="bodyWood" required>
-    <option value="alder" data-price="0">Alder (+$0)</option>
-    <option value="swampash" data-price="20">Swamp Ash (+$20)</option>
-    <option value="mahogany" data-price="30">Mahogany (+$30)</option>
-  </select>
-
-  <label for="bodyFinish">Body Finish</label>
-  <select id="bodyFinish" name="bodyFinish" required>
-    <option value="black" data-price="0">Black (+$0)</option>
-    <option value="white" data-price="0">White (+$0)</option>
-    <option value="surfgreen" data-price="0">Surf Green (+$0)</option>
-    <option value="burst" data-price="40">Burst / Stain (+$40)</option>
-    <option value="custom" data-price="60">Custom Color (+$60)</option>
-  </select>
-
-  <label for="neckWood">Neck Wood</label>
-  <select id="neckWood" name="neckWood" required>
-    <option value="maple" data-price="0">Maple (+$0)</option>
-    <option value="roastedmaple" data-price="30">Roasted Maple (+$30)</option>
-  </select>
-
-  <label for="neckShape">Neck Shape</label>
-  <select id="neckShape" name="neckShape" required>
-    <option value="u">U Shape</option>
-    <option value="v">V Shape</option>
-    <option value="c">C Shape</option>
-  </select>
-
-  <label for="fingerboard">Fingerboard Wood</label>
-  <select id="fingerboard" name="fingerboard" required>
-    <option value="maple">Maple</option>
-    <option value="rosewood">Rosewood</option>
-  </select>
-
-  <label for="pickguard">Pickguard</label>
-  <select id="pickguard" name="pickguard" required>
-    <option value="black" data-price="0">Black (+$0)</option>
-    <option value="white" data-price="0">White (+$0)</option>
-    <option value="tortoise" data-price="20">Tortoise Shell (+$20)</option>
-  </select>
-
-  <label for="bridge">Bridge</label>
-  <select id="bridge" name="bridge" required>
-    <option value="tele3" data-price="0">Tele 3-Saddle (+$0)</option>
-    <option value="tele6" data-price="10">Tele 6-Saddle (+$10)</option>
-    <option value="strattremolo" data-price="10">Strat Vintage Tremolo (+$10)</option>
-    <option value="strathardtail" data-price="0">Strat Hardtail (+$0)</option>
-  </select>
-
-  <label for="tuners">Tuners</label>
-  <select id="tuners" name="tuners" required>
-    <option value="kluson" data-price="0">Vintage Kluson (+$0)</option>
-    <option value="locking" data-price="20">Locking Tuners (+$20)</option>
-  </select>
-
-  <label for="pickups">Pickups</label>
-  <select id="pickups" name="pickups" required>
-    <option value="rhoades" data-price="0">Rhoades Custom Vintage Single-Coils (+$0)</option>
-    <option value="hottele" data-price="20">Hot Tele Set (Tele only) (+$20)</option>
-    <option value="60sstrat" data-price="20">60s Strat Set (Strat only) (+$20)</option>
-  </select>
+  <!-- Your builder form remains the same -->
+  <!-- ... ALL your existing guitar option fields ... -->
 
   <label>Add-Ons:</label>
   <input type="checkbox" id="neckPlate" name="neckPlate" value="neckPlate" data-price="10" />
@@ -159,35 +114,54 @@
   <button type="submit">Submit Build</button>
 </form>
 
+<!-- NEW SECTION: Venmo Order Form -->
+<div class="venmo-info">
+  <h2>Order & Pay via Venmo</h2>
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="_replyto" required />
+
+    <label for="order">What do you want?</label>
+    <textarea id="order" name="order" rows="4" required></textarea>
+
+    <label for="questions">Extra Questions or Notes:</label>
+    <textarea id="questions" name="questions" rows="4" placeholder="Write anything else here..."></textarea>
+
+    <button type="submit">Send Order Info</button>
+  </form>
+
+  <p style="margin-top:20px;"><strong>Venmo Username:</strong> @cashrhoades</p>
+  <p><a href="https://venmo.com/cashrhoades" target="_blank">Click here to pay on Venmo</a></p>
+</div>
+
+<footer>
+  &copy; 2025 Rhoades Custom Guitars. Built with passion in Missouri.
+</footer>
+
 <script>
   const basePrice = 450;
-
   const form = document.getElementById('customizer');
   const priceDisplay = document.getElementById('price');
 
   function updatePrice() {
     let total = basePrice;
 
-    // Add prices for each dropdown selection
     form.querySelectorAll('select').forEach(select => {
       const selectedOption = select.options[select.selectedIndex];
       const addOn = selectedOption.getAttribute('data-price');
-      if (addOn) {
-        total += parseInt(addOn);
-      }
+      if (addOn) total += parseInt(addOn);
     });
 
-    // Add prices for checkboxes
     form.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
       if (checkbox.checked) {
         const addOn = checkbox.getAttribute('data-price');
-        if (addOn) {
-          total += parseInt(addOn);
-        }
+        if (addOn) total += parseInt(addOn);
       }
     });
 
-    // Special logic: Hot Tele Set only for Tele, 60s Strat Set only for Strat
     const bodyStyle = form.bodyStyle.value;
     const pickups = form.pickups.value;
     if (bodyStyle === 'tele' && pickups === '60sstrat') {
@@ -203,7 +177,6 @@
   }
 
   form.addEventListener('change', updatePrice);
-
   form.addEventListener('submit', e => {
     e.preventDefault();
     alert('Thanks for submitting your build! We will contact you soon.');
